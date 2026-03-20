@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - The Megalodon Market</title>
+    <link rel="stylesheet" href="megaecomerce.css">
+</head>
+<body>
+    <header>
+        <div class="header-brand">
+            <img src="megcommercelogo.jpg" alt="Megalodon Market Logo" width="80" height="80">
+            <div>
+                <h1>The Megalodon Market</h1>
+                <h2>By Technosaurus Rex!!!</h2>
+            </div>
+        </div>
+        <nav>
+            <a href="megecomerce.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="cart.html" class="cart-link">🛒 Cart <span class="cart-count">0</span></a>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="page-title">Shopping Cart</h1>
+        <div id="cart-content">
+            <!-- Cart items rendered by JavaScript -->
+        </div>
+        <div class="cart-summary" id="cart-summary" style="display: none;">
+            <h3>Order Summary</h3>
+            <p class="cart-total">Total: $<span id="cart-total">0.00</span></p>
+            <button class="checkout-btn" onclick="alert('Checkout coming soon! This is a demo. In production, you would integrate with a payment processor like Stripe.')">Proceed to Checkout</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>© The Megalodon Market by Technosaurus Rex. All rights reserved.</p>
+    </footer>
+
+    <script src="cart.js"></script>
+    <script>
+        function renderCart() {
+            const cart = getCart();
+            const container = document.getElementById('cart-content');
+            const summary = document.getElementById('cart-summary');
+            
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-cart">
+                        <p>Your cart is empty. Time to go shopping!</p>
+                        <a href="products.html">Browse Products →</a>
+                    </div>
+                `;
+                summary.style.display = 'none';
+                return;
+            }
+            
+            let total = 0;
+            let html = '';
+            cart.forEach(item => {
+                const product = PRODUCTS[item.id];
+                if (!product) return;
+                const subtotal = product.price * item.quantity;
+                total += subtotal;
+                html += `
+                    <div class="cart-item" data-id="${product.id}">
+                        <div class="cart-item-image">${product.emoji}</div>
+                        <div class="cart-item-details">
+                            <h3>${product.name}</h3>
+                            <span class="cart-item-price">$${product.price.toFixed(2)} each</span>
+                            <div class="quantity-controls">
+                                <button onclick="changeQty('${product.id}', -1)">−</button>
+                                <span>${item.quantity}</span>
+                                <button onclick="changeQty('${product.id}', 1)">+</button>
+                            </div>
+                        </div>
+                        <div>
+                            <strong>$${subtotal.toFixed(2)}</strong>
+                            <br><br>
+                            <button class="remove-item" onclick="removeItem('${product.id}')">Remove</button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+            document.getElementById('cart-total').textContent = total.toFixed(2);
+            summary.style.display = 'block';
+        }
+        
+        function changeQty(id, delta) {
+            const cart = getCart();
+            const item = cart.find(i => i.id === id);
+            if (item) {
+                item.quantity += delta;
+                if (item.quantity <= 0) {
+                    removeFromCart(id);
+                } else {
+                    saveCart(cart);
+                }
+                renderCart();
+                updateCartCount();
+            }
+        }
+        
+        function removeItem(id) {
+            removeFromCart(id);
+            renderCart();
+            updateCartCount();
+        }
+        
+        updateCartCount();
+        renderCart();
+    </script>
+</body>
+</html>

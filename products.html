@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - The Megalodon Market</title>
+    <link rel="stylesheet" href="megaecomerce.css">
+</head>
+<body>
+    <header>
+        <div class="header-brand">
+            <img src="megcommercelogo.jpg" alt="Megalodon Market Logo" width="80" height="80">
+            <div>
+                <h1>The Megalodon Market</h1>
+                <h2>By Technosaurus Rex!!!</h2>
+            </div>
+        </div>
+        <nav>
+            <a href="megecomerce.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="cart.html" class="cart-link">🛒 Cart <span class="cart-count">0</span></a>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="page-title">Our Products</h1>
+        <p class="page-subtitle">From electronics to home goods — we have something for everyone.</p>
+
+        <nav class="category-nav">
+            <a href="#" class="category-filter active" data-category="all">All</a>
+            <a href="#" class="category-filter" data-category="electronics">Electronics</a>
+            <a href="#" class="category-filter" data-category="home">Home Goods</a>
+            <a href="#" class="category-filter" data-category="clothing">Clothing</a>
+            <a href="#" class="category-filter" data-category="toys">Toys</a>
+            <a href="#" class="category-filter" data-category="sports">Sports</a>
+        </nav>
+
+        <div class="products-grid" id="products-grid">
+            <div class="product-card" data-category="electronics">
+                <div class="product-image">🎧</div>
+                <div class="product-info">
+                    <h3>Megalodon Wireless Earbuds</h3>
+                    <span class="price">$49.99</span>
+                    <button class="add-to-cart" data-product-id="wireless-earbuds">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-category="electronics">
+                <div class="product-image">⌚</div>
+                <div class="product-info">
+                    <h3>Deep Sea Smart Watch</h3>
+                    <span class="price">$129.99</span>
+                    <button class="add-to-cart" data-product-id="smart-watch">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-category="electronics">
+                <div class="product-image">📱</div>
+                <div class="product-info">
+                    <h3>Ocean View Tablet</h3>
+                    <span class="price">$249.99</span>
+                    <button class="add-to-cart" data-product-id="tablet">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-category="home">
+                <div class="product-image">🥤</div>
+                <div class="product-info">
+                    <h3>Shark Blender Pro</h3>
+                    <span class="price">$79.99</span>
+                    <button class="add-to-cart" data-product-id="blender">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-category="home">
+                <div class="product-image">🛋️</div>
+                <div class="product-info">
+                    <h3>Coastal Throw Pillows (Set of 4)</h3>
+                    <span class="price">$39.99</span>
+                    <button class="add-to-cart" data-product-id="throw-pillows">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-category="home">
+                <div class="product-image">💡</div>
+                <div class="product-info">
+                    <h3>Coral Reef Desk Lamp</h3>
+                    <span class="price">$54.99</span>
+                    <button class="add-to-cart" data-product-id="lamp">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-category="home">
+                <div class="product-image">☕</div>
+                <div class="product-info">
+                    <h3>Meg Bite Ceramic Mug</h3>
+                    <span class="price">$16.99</span>
+                    <button class="add-to-cart" data-product-id="mug">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-category="clothing">
+                <div class="product-image">👕</div>
+                <div class="product-info">
+                    <h3>Megalodon Logo Hoodie</h3>
+                    <span class="price">$44.99</span>
+                    <button class="add-to-cart" data-product-id="hoodie">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-category="clothing">
+                <div class="product-image">🧢</div>
+                <div class="product-info">
+                    <h3>Technosaurus Rex Cap</h3>
+                    <span class="price">$24.99</span>
+                    <button class="add-to-cart" data-product-id="cap">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-category="toys">
+                <div class="product-image">🦈</div>
+                <div class="product-info">
+                    <h3>Megalodon Plush Toy</h3>
+                    <span class="price">$29.99</span>
+                    <button class="add-to-cart" data-product-id="plush">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-category="toys">
+                <div class="product-image">🧩</div>
+                <div class="product-info">
+                    <h3>Deep Ocean 1000-Piece Puzzle</h3>
+                    <span class="price">$19.99</span>
+                    <button class="add-to-cart" data-product-id="puzzle">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-category="sports">
+                <div class="product-image">🥏</div>
+                <div class="product-info">
+                    <h3>Shark Fin Frisbee</h3>
+                    <span class="price">$14.99</span>
+                    <button class="add-to-cart" data-product-id="frisbee">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-category="sports">
+                <div class="product-image">🥤</div>
+                <div class="product-info">
+                    <h3>Hydro Shark Water Bottle</h3>
+                    <span class="price">$22.99</span>
+                    <button class="add-to-cart" data-product-id="water-bottle">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© The Megalodon Market by Technosaurus Rex. All rights reserved.</p>
+    </footer>
+
+    <script src="cart.js"></script>
+    <script>
+        initCartUI();
+        // Category filter
+        document.querySelectorAll('.category-filter').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.category-filter').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                const cat = this.dataset.category;
+                document.querySelectorAll('.product-card').forEach(card => {
+                    card.style.display = (cat === 'all' || card.dataset.category === cat) ? '' : 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
